@@ -1,23 +1,25 @@
-from engine.blocks.block import Block 
+from engine.blocks.block import Block
+from engine.direction import Direction
+import numpy as np
 
 class DoubleOblique(Block):
-    def __init__(self) -> None:
-        super().__init__()
-        self._area = [[self.id, self.empty],
-                      [self.empty, self.id]]
+    def __init__(self, direction: Direction = Direction.North) -> None:
+        self._area = np.array([[self.id, self.empty],
+                               [self.empty, self.id]])
+        self._rotate(direction)
 
     @property
-    def id(self):
-        return 2
+    def id(self) -> int:
+        return 3
     
     @property
-    def is_movable(self):
+    def is_movable(self) -> bool:
         return True
     
     @property
-    def is_winning(self):
+    def is_winning(self) -> bool:
         return True
     
     @property
-    def area(self):
+    def area(self) -> np.array:
         return self._area
