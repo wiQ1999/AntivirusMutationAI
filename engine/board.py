@@ -41,14 +41,15 @@ class Board(object):
                 new_y = y + b_y
                 for b_x in range(len(b.area[0])):
                     new_x = x + b_x
-                    if self._is_position_free(new_x, new_y):
-                        if b.is_possition_taken(b_x, b_y):
-                            self._board[new_y][new_x] = b.id
-                    else:
-                        raise Exception(f'Posision (x:{new_x}, y:{new_y}) is taken.')
+                    if b.is_possition_taken(b_x, b_y):
+                        if self._is_position_free(new_x, new_y):
+                            self._board[new_y, new_x] = b.id
+                        else:
+                            raise Exception(f'Posision (x:{new_x}, y:{new_y}) is taken.')
                 
     def _is_position_free(self, x: int, y: int) -> bool:
-        return self._board[y][x] == 0
+        pos = self._board[y, x]
+        return pos == self._empty or pos == self._finish
 
     def print(self) -> None:
         line = ''.join(['-' for _ in range(len(self._board[0]))])

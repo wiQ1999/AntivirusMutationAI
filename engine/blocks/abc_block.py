@@ -26,7 +26,7 @@ class AbcBlock(ABC):
         pass
 
     def is_possition_taken(self, x: int, y: int):
-        return self._area[y][x] != self.empty
+        return self._area[y, x] != self.empty
 
     @property
     def width(self) -> int:
