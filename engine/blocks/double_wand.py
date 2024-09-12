@@ -2,7 +2,7 @@ from engine.blocks.abc_block import AbcBlock
 from engine.direction import Direction
 import numpy as np
 
-class DoubleOblique(AbcBlock):
+class DoubleWand(AbcBlock):
     def __init__(self, direction: Direction = Direction.North) -> None:
         self._area = np.array([[self.id, self.empty],
                                [self.empty, self.id]])
@@ -18,7 +18,7 @@ class DoubleOblique(AbcBlock):
     
     @property
     def is_winning(self) -> bool:
-        return True
+        return False
     
     @property
     def area(self) -> np.array:
