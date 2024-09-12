@@ -6,7 +6,7 @@ class AbcTriple(AbcBlock):
     def __init__(self, direction: Direction = Direction.North) -> None:
         self._area = np.array([[self.id, self.empty, self.id],
                                [self.empty, self.id, self.empty]])
-        self._rotate(direction)
+        self.rotate(direction)
     
     @property
     def is_movable(self) -> bool:

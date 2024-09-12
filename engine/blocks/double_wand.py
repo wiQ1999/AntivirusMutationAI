@@ -6,7 +6,7 @@ class DoubleWand(AbcBlock):
     def __init__(self, direction: Direction = Direction.North) -> None:
         self._area = np.array([[self.id, self.empty],
                                [self.empty, self.id]])
-        self._rotate(direction)
+        self.rotate(direction)
 
     @property
     def id(self) -> int:
