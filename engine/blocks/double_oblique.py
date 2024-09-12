@@ -10,7 +10,7 @@ class DoubleOblique(Block):
 
     @property
     def id(self) -> int:
-        return 3
+        return 4
     
     @property
     def is_movable(self) -> bool:

@@ -4,7 +4,7 @@ from engine.direction import Direction
 import numpy as np
 
 class Board(object):
-    _border = -1
+    _border = 2
     _empty = 0
 
     def __init__(self, direction: Direction, block_popsitions: List[Tuple[Block, int, int]]) -> None:

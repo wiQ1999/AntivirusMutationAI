@@ -9,7 +9,7 @@ class Double(Block):
 
     @property
     def id(self) -> int:
-        return 2
+        return 3
     
     @property
     def is_movable(self) -> bool:

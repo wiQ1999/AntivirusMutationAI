@@ -8,7 +8,7 @@ class Single(Block):
 
     @property
     def id(self) -> int:
-        return 1
+        return 2
     
     @property
     def is_movable(self) -> bool:
