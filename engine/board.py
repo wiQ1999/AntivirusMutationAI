@@ -1,5 +1,5 @@
 from typing import List, Tuple
-from engine.blocks.block import Block
+from engine.blocks.abc_block import AbcBlock
 from engine.direction import Direction
 import numpy as np
 
@@ -8,7 +8,7 @@ class Board(object):
     _finish = 1
     _empty = 0
 
-    def __init__(self, direction: Direction, block_popsitions: List[Tuple[Block, int, int]]) -> None:
+    def __init__(self, direction: Direction, block_popsitions: List[Tuple[AbcBlock, int, int]]) -> None:
         self._direction = direction
         self._block_positions = block_popsitions
         self._init_board()

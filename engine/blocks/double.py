@@ -1,8 +1,8 @@
-from engine.blocks.block import Block 
+from engine.blocks.abc_block import AbcBlock 
 from engine.direction import Direction
 import numpy as np
 
-class Double(Block):
+class Double(AbcBlock):
     def __init__(self, direction: Direction = Direction.North) -> None:
         self._area = np.array([[self.id, self.id]])
         self._rotate(direction)

@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 from engine.direction import Direction
 import numpy as np
 
-class Block(ABC):
+class AbcBlock(ABC):
     empty = 0
 
     @property

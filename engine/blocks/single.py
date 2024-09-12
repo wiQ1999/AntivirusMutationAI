@@ -1,7 +1,7 @@
-from engine.blocks.block import Block
+from engine.blocks.abc_block import AbcBlock
 import numpy as np
 
-class Single(Block):
+class Single(AbcBlock):
     def __init__(self) -> None:
         super().__init__()
         self._area = np.array([[self.id]])
