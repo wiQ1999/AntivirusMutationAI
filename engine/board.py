@@ -5,6 +5,7 @@ import numpy as np
 
 class Board(object):
     _border = 2
+    _finish = 1
     _empty = 0
 
     def __init__(self, direction: Direction, block_popsitions: List[Tuple[Block, int, int]]) -> None:
@@ -15,39 +16,23 @@ class Board(object):
 
     def _init_board(self) -> None:
         if self._direction == Direction.North:
-            self._board = np.array([
-                [self._empty] + [self._border for _ in range(4)], 
-                [self._empty for _ in range(5)], 
-                [self._empty for _ in range(5)], 
-                [self._empty for _ in range(5)], 
-                [self._empty for _ in range(5)], 
-                [self._empty for _ in range(5)]
-            ])
-        if self._direction == Direction.East:
-            self._board = np.array([
-                [self._empty for _ in range(6)], 
-                [self._empty for _ in range(5)] + [self._border], 
-                [self._empty for _ in range(5)] + [self._border], 
-                [self._empty for _ in range(5)] + [self._border], 
-                [self._empty for _ in range(5)] + [self._border]
-            ])
-        if self._direction == Direction.South:
-            self._board = np.array([
-                [self._empty for _ in range(5)], 
-                [self._empty for _ in range(5)], 
-                [self._empty for _ in range(5)], 
-                [self._empty for _ in range(5)], 
-                [self._empty for _ in range(5)], 
-                [self._border for _ in range(4)] + [self._empty], 
-            ])
-        if self._direction == Direction.West:
-            self._board = np.array([
-                [self._border] + [self._empty for _ in range(5)], 
-                [self._border] + [self._empty for _ in range(5)], 
-                [self._border] + [self._empty for _ in range(5)], 
-                [self._border] + [self._empty for _ in range(5)], 
-                [self._empty for _ in range(6)]
-            ])
+            self._board = np.array(
+                [[self._finish] + [self._border] * 5] + 
+                [[self._empty] * 5 + [self._border] for _ in range(5)])
+        elif self._direction == Direction.East:
+            self._board = np.array(
+                [[self._empty] * 5 + [self._finish]] +
+                [[self._empty] * 5 + [self._border] for _ in range(4)] +
+                [[self._border] * 6])
+        elif self._direction == Direction.South:
+            self._board = np.array(
+                [[self._border] + [self._empty] * 5 for _ in range(5)] +
+                [[self._border] * 5 + [self._finish]])
+        elif self._direction == Direction.West:
+            self._board = np.array(
+                [[self._border] * 6] +
+                [[self._border] + [self._empty] * 5 for _ in range(4)] +
+                [[self._finish] + [self._empty] * 5])
 
     def _draw_blocks(self) -> None:
         for bp in self._block_positions:
