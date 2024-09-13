@@ -4,7 +4,7 @@ import numpy as np
 
 class DoubleWinner(AbcBlock):
     def __init__(self, direction: Direction = Direction.North) -> None:
-        self._area = np.array([[self.id, self.id]])
+        self._area = np.array([[self.id], [self.id]])
         self.rotate(direction)
 
     @property
